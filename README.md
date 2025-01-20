@@ -132,11 +132,5 @@ Run unit tests:
 dotnet test
 ```
 
-## Improvements
-- Add caching to reduce redundant API calls.
-- Add unit tests for enhanced coverage.
-- Dockerize the application for ease of deployment.
-- Support for additional metrics (e.g., kilometers).
-
 ## License
 This project is licensed under the MIT License.
