@@ -6,6 +6,6 @@ namespace CTeleportAssignment.Services.Services.Contracts
 {
     public interface IAirportService
     {
-        Task<Result<AirportInfo, DomainError>> CalculateDistanceAsync(Iata firstIata, Iata secondIata, CancellationToken cancellationToken);
+        Task<Result<AirportPair, DomainError>> CalculateDistanceAsync(Iata firstIata, Iata secondIata, CancellationToken cancellationToken);
     }
 }

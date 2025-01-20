@@ -1,6 +1,5 @@
 ﻿using CTeleportAssigment.Domain;
 using CTeleportAssignment.Services.Services.Contracts;
-using CTeleportAssignment.WebAPI.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CTeleportAssignment.WebAPI.Controllers

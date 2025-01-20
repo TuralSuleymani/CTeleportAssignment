@@ -2,8 +2,6 @@
 using Polly.Extensions.Http;
 using Polly;
 using CTeleportAssignment.Providers.Config;
-using CTeleportAssignment.Services.Services.Contracts;
-using CTeleportAssignment.Services.Services.Implementations;
 
 namespace CTeleportAssignment.WebAPI.Extensions
 {
@@ -38,15 +36,14 @@ namespace CTeleportAssignment.WebAPI.Extensions
 
         public static IServiceCollection AddApiServices(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddTransient<IGeolocationService, CustomGeolocationService>();
             serviceCollection.AddTransient<IAirportProvider, CTeleportProvider>();
             return serviceCollection;
         }
 
         public static IServiceCollection AddApiConfiguration(this IServiceCollection serviceCollection, IConfiguration configuration)
         {
-            var myKey = configuration["Provider:Url"];
-            serviceCollection.AddSingleton(sp => new ProviderConfig { Url = myKey });
+            var url = configuration["Provider:Url"];
+            serviceCollection.AddSingleton(sp => new ProviderConfig(url!));
             return serviceCollection;
         }
 

@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTeleportAssigment.Provider
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTeleportAssigment.Services.Tests.Unit", "tests\CTeleportAssigment.Services.Tests.Unit\CTeleportAssigment.Services.Tests.Unit.csproj", "{9B186776-E42F-44D9-A63E-E4F6B820FFAB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTeleportAssignment.Tests.Data", "tests\CTeleportAssignment.Tests.Data\CTeleportAssignment.Tests.Data.csproj", "{1CF05F36-19C1-4121-9942-C36AD5C58088}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{9B186776-E42F-44D9-A63E-E4F6B820FFAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B186776-E42F-44D9-A63E-E4F6B820FFAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B186776-E42F-44D9-A63E-E4F6B820FFAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CF05F36-19C1-4121-9942-C36AD5C58088}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CF05F36-19C1-4121-9942-C36AD5C58088}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CF05F36-19C1-4121-9942-C36AD5C58088}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CF05F36-19C1-4121-9942-C36AD5C58088}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +72,7 @@ Global
 		{B1B080C3-4161-47CC-B83B-02F98B2DCDCC} = {071F47CE-D115-4892-BBAF-8CA62799455A}
 		{184B1B47-9EDD-40F6-9D63-1385B1C4407B} = {ABC452BC-BF9F-4439-AB3C-C03932D5FE6C}
 		{9B186776-E42F-44D9-A63E-E4F6B820FFAB} = {ABC452BC-BF9F-4439-AB3C-C03932D5FE6C}
+		{1CF05F36-19C1-4121-9942-C36AD5C58088} = {ABC452BC-BF9F-4439-AB3C-C03932D5FE6C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F6CFAFC7-45E7-470A-B9B8-D86720A73205}

@@ -8,18 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="bogus" Version="35.6.1" />
     <PackageReference Include="coverlet.collector" Version="6.0.2" />
-    <PackageReference Include="fluentassertions" Version="8.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
-    <PackageReference Include="moq" Version="4.20.72" />
     <PackageReference Include="xunit" Version="2.9.2" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\CTeleportAssignment.Providers\CTeleportAssignment.Providers.csproj" />
-    <ProjectReference Include="..\CTeleportAssignment.Tests.Data\CTeleportAssignment.Tests.Data.csproj" />
+    <ProjectReference Include="..\..\src\CTeleportAssignment.Services\CTeleportAssignment.Services.csproj" />
   </ItemGroup>
 
   <ItemGroup>

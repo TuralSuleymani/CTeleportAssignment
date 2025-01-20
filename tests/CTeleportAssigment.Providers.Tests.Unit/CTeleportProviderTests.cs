@@ -5,6 +5,7 @@ using CTeleportAssignment.Providers;
 using CTeleportAssignment.Providers.Config;
 using CTeleportAssignment.Providers.Exceptions;
 using CTeleportAssignment.Providers.Models;
+using CTeleportAssignment.Tests.Data;
 using FluentAssertions;
 using Moq;
 
@@ -21,14 +22,15 @@ namespace CTeleportAssigment.Providers.Tests.Unit
         {
             _httpClientFactoryMock = new Mock<IHttpClientFactory>();
             _httpMessageHandlerMock = new Mock<HttpMessageHandler>();
-            _providerConfig = new ProviderConfig { Url = "https://api.cteleport.com" };
+            _providerConfig = new ProviderConfig("https://api.cteleport.com");
         }
         [Fact]
         public async Task GetAirportInfoByIataAsync_WhenResponseIsSuccessful_ShouldReturnAirportInfo()
         {
             // Arrange
-            var iata = "JFK";
-            var expectedAirportInfo = new AirportInfo { Iata = iata, Name = "John F. Kennedy International Airport" };
+            
+            var expectedAirportInfo = AirportInfoData.AirportInfo();
+            var iata = expectedAirportInfo.Iata;
             var jsonResponse = JsonSerializer.Serialize(expectedAirportInfo);
 
             var responseMessage = new HttpResponseMessage
@@ -57,7 +59,7 @@ namespace CTeleportAssigment.Providers.Tests.Unit
         public async Task GetAirportInfoByIataAsync_WhenResponseIsBadRequest_ShouldThrowInvalidCodeException()
         {
             // Arrange
-            var iata = "INVALID";
+            var iata = AirportInfoData.InvalidIata;
 
             var responseMessage = new HttpResponseMessage
             {
@@ -82,7 +84,7 @@ namespace CTeleportAssigment.Providers.Tests.Unit
         public async Task GetAirportInfoByIataAsync_WhenResponseIsNotFound_ShouldThrowNotFoundException()
         {
             // Arrange
-            var iata = "XYZ";
+            var iata = AirportInfoData.FirstIata;
 
             var responseMessage = new HttpResponseMessage
             {
@@ -107,7 +109,7 @@ namespace CTeleportAssigment.Providers.Tests.Unit
         public async Task GetAirportInfoByIataAsync_WhenUnhandledExceptionOccurs_ShouldThrowProviderException()
         {
             // Arrange
-            var iata = "JFK";
+            var iata = AirportInfoData.FirstIata;
 
             var requestException = new HttpRequestException("Unexpected error");
 

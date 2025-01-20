@@ -2,7 +2,7 @@
 using CTeleportAssignment.WebAPI.Extensions;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CTeleportAssignment.WebAPI.Abstractions
+namespace CTeleportAssignment.WebAPI.Controllers
 {
     [ApiController]
     public abstract partial class BaseController : ControllerBase
