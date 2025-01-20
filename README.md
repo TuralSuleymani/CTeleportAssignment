@@ -16,7 +16,6 @@ This project demonstrates building scalable and resilient services using .NET Co
 - Open/Closed Principle
 - Dependency Inversion Principle
 - High Cohesion and Loose Coupling
-- Command–Query Separation
 - Domain-driven Design (lite)
 
 ### Applied Design Patterns
@@ -28,7 +27,6 @@ This project demonstrates building scalable and resilient services using .NET Co
 - **Mediator Pattern**
 - **Decorator Pattern**
 - **Builder Pattern**
-- **Command Pattern**
 - **Options Pattern**
 - **Dependency Injection Pattern**
 
