@@ -7,14 +7,18 @@
             $"IATA Code should be {STRICT_IATA_LENGTH} characters long.";
         public string Value { get; }
 
-        public Iata(string iata)
+        private Iata(string iata)
+        {
+            Value = iata;
+        }
+
+        public static Iata Create(string iata)
         {
             if (string.IsNullOrWhiteSpace(iata) || iata.Length != STRICT_IATA_LENGTH)
             {
                 throw new ArgumentException(IATA_CODE_LENGTH_ERROR, nameof(iata));
             }
-
-            Value = iata;
+            return new Iata(iata.ToUpper());
         }
     }
 }

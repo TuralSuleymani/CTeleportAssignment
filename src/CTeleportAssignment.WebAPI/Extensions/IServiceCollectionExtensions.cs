@@ -2,6 +2,8 @@
 using Polly.Extensions.Http;
 using Polly;
 using CTeleportAssignment.Providers.Config;
+using CTeleportAssignment.Services.Services.Contracts;
+using CTeleportAssignment.Services.Services.Implementations;
 
 namespace CTeleportAssignment.WebAPI.Extensions
 {
@@ -37,6 +39,7 @@ namespace CTeleportAssignment.WebAPI.Extensions
         public static IServiceCollection AddApiServices(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddTransient<IAirportProvider, CTeleportProvider>();
+            serviceCollection.AddTransient<IAirportService, CTeleportAirportService>();
             return serviceCollection;
         }
 

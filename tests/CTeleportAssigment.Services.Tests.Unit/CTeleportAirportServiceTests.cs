@@ -31,8 +31,8 @@ public class CTeleportAirportServiceTests
         var firstAirportInfo = AirportInfoData.AirportInfo();
         var secondAirportInfo = AirportInfoData.AirportInfo();
 
-        var firstIata = new Iata(firstAirportInfo.Iata);
-        var secondIata = new Iata(secondAirportInfo.Iata);
+        var firstIata = Iata.Create(firstAirportInfo.Iata);
+        var secondIata = Iata.Create(secondAirportInfo.Iata);
 
         _airportProviderMock.GetAirportInfoByIataAsync(firstIata.Value).Returns(firstAirportInfo);
         _airportProviderMock.GetAirportInfoByIataAsync(secondIata.Value).Returns(secondAirportInfo);
@@ -57,8 +57,8 @@ public class CTeleportAirportServiceTests
     public async Task CalculateDistanceAsync_WhenFirstAirportNotFound_ShouldReturnNotFoundError()
     {
         // Arrange
-        var firstIata = new Iata(AirportInfoData.AirportInfo().Iata);
-        var secondIata = new Iata(AirportInfoData.AirportInfo().Iata);
+        var firstIata = Iata.Create(AirportInfoData.AirportInfo().Iata);
+        var secondIata = Iata.Create(AirportInfoData.AirportInfo().Iata);
 
         _airportProviderMock.GetAirportInfoByIataAsync(firstIata.Value).Returns((ProviderAirportInfo?)null);
 
@@ -75,8 +75,8 @@ public class CTeleportAirportServiceTests
     public async Task CalculateDistanceAsync_WhenSecondAirportNotFound_ShouldReturnNotFoundError()
     {
         // Arrange
-        var firstIata = new Iata(AirportInfoData.FirstIata);
-        var secondIata = new Iata(AirportInfoData.SecondIata);
+        var firstIata = Iata.Create(AirportInfoData.FirstIata);
+        var secondIata = Iata.Create(AirportInfoData.SecondIata);
 
         var firstAirportInfo = AirportInfoData.AirportInfo();
 
@@ -97,8 +97,8 @@ public class CTeleportAirportServiceTests
     public async Task CalculateDistanceAsync_WhenProviderThrowsInvalidCodeException_ShouldReturnBadRequestError()
     {
         // Arrange
-        var firstIata = new Iata(AirportInfoData.FirstIata);
-        var secondIata = new Iata(AirportInfoData.SecondIata);
+        var firstIata = Iata.Create(AirportInfoData.FirstIata);
+        var secondIata = Iata.Create(AirportInfoData.SecondIata);
 
         _airportProviderMock.GetAirportInfoByIataAsync(firstIata.Value).Throws(new InvalidCodeException(firstIata.Value));
 
@@ -115,8 +115,8 @@ public class CTeleportAirportServiceTests
     public async Task CalculateDistanceAsync_WhenUnexpectedExceptionOccurs_ShouldReturnUnexpectedError()
     {
         // Arrange
-        var firstIata = new Iata(AirportInfoData.FirstIata);
-        var secondIata = new Iata(AirportInfoData.SecondIata);
+        var firstIata = Iata.Create(AirportInfoData.FirstIata);
+        var secondIata = Iata.Create(AirportInfoData.SecondIata);
 
         _airportProviderMock.GetAirportInfoByIataAsync(Arg.Any<string>())
             .Throws(new ProviderException("Unexpected error"));

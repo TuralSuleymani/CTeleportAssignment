@@ -10,7 +10,7 @@ namespace CTeleportAssignment.WebAPI.Controllers
     {
         private readonly IAirportService _airportService;
 
-        protected AirportsController(IAirportService airportService, ILogger<AirportsController> logger)
+        public AirportsController(IAirportService airportService, ILogger<AirportsController> logger)
             : base(logger)
         {
             _airportService = airportService;
@@ -19,11 +19,13 @@ namespace CTeleportAssignment.WebAPI.Controllers
         [HttpGet("distance/{firstIata}/{secondIata}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetDistanceBetweenAirports(Iata firstIata, Iata secondIata)
+        public async Task<IActionResult> GetDistanceBetweenAirports(string firstIata, string secondIata)
         {
-            var airportServiceResponse = await _airportService.CalculateDistanceAsync(firstIata, secondIata, CancellationToken.None);
+           Iata _firstIata = Iata.Create(firstIata);
+            Iata _secondIata = Iata.Create(secondIata);
+            var airportServiceResponse = await _airportService.CalculateDistanceAsync(_firstIata, _secondIata, CancellationToken.None);
             if (airportServiceResponse.IsSuccess)
-                return NoContent();
+                return Ok(airportServiceResponse.Value);
             else
                 return HandleError(airportServiceResponse.Error);
         }
